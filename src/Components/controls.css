@@ -1,0 +1,105 @@
+.modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 20px;
+	max-width: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-content {
+	margin-bottom: 10px;
+}
+
+.modal-content select {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.modal button {
+	width: 100%;
+	padding: 10px;
+	border: none;
+	border-radius: 4px;
+	background-color: #007bff;
+	color: #fff;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
+.modal h2 {
+	font-size: 24px;
+	font-weight: 900;
+	text-align: center;
+}
+
+.modal p.modal-content {
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.modal .checkbox-container {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.modal .checkbox-container label {
+	font-size: 17px;
+	font-weight: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+.modal .checkbox-container input {
+	width: 20px;
+	height: 20px;
+}
+
+.controls-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 35px;
+}
+
+.controls-box p {
+	font-size: 20px;
+	font-weight: 900;
+}
+
+.controls-box .btns {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+}
+
+.controls-box .btns button {
+	font-weight: 900;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	background-color: #007bff;
+	color: #fff;
+	cursor: pointer;
+}
+
+.controls-box .btns button:hover {
+	background-color: #0056b3;
+}
