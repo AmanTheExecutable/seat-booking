@@ -17,7 +17,7 @@ function ModalElement({
 	// Handle seat allocation
 	const handleAllocate = () => {
 		handleConfirm(selectedCategory, selectedSeatNumbers);
-		closeModal(); // Close the modal after confirmation
+		closeModal();
 	};
 
 	return (

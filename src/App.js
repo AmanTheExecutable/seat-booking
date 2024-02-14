@@ -69,7 +69,6 @@ const App = () => {
 	const [isModificationConfirmationOpen, setIsModificationConfirmationOpen] =
 		useState(false);
 	const [selectedSeatToModify, setSelectedSeatToModify] = useState(-1);
-	console.log(selectedSeats);
 	return (
 		<div className="app">
 			<h1>Seat Booking</h1>

@@ -12,7 +12,6 @@ const SeatGrid = ({ seats, handleSeatClick }) => {
 			<div className="Driver">
 				<div className="square">
 					<img src={wheel} alt="Driver" />
-
 					<p>Reserved</p>
 				</div>
 			</div>

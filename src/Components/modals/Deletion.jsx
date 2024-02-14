@@ -1,5 +1,3 @@
-// ModalElement2.jsx
-
 import React, { useState } from "react";
 import Modal from "react-modal";
 
@@ -24,7 +22,6 @@ function ModalElement2({
 
 	// Handle delete confirmation
 	const handleDeleteConfirm = () => {
-		// console.log(checkedSeats);
 		handleConfirm(checkedSeats);
 		setCheckedSeats([]); // Clear checked seats state
 		closeModal();

@@ -108,7 +108,7 @@ const Controls = ({
 		if (selectedCategory && Object.keys(selectedSeats).length > 0) {
 			// Call handleAllocate with selectedCategory and selectedSeats
 			handleAllocate(selectedCategory, Object.keys(selectedSeats));
-			setIsFirstModalVisible(false); // Close the modal after confirmation
+			setIsFirstModalVisible(false);
 		} else {
 			alert("Please select a category and at least one seat to allocate.");
 		}
