@@ -104,3 +104,14 @@
 .controls-box .btns button:hover {
 	background-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+	.controls-box {
+		flex-direction: column;
+		align-items: center;
+		margin: 10px;
+	}
+	.controls-box .btns {
+		margin-top: 20px;
+	}
+}

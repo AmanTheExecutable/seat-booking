@@ -93,10 +93,6 @@
 	box-shadow: 0 0 10px #33ff00;
 }
 
-/* .seat-grid .square:hover {
-	background-color: #00ff04;
-} */
-
 .square {
 	width: 65px;
 	height: 65px;
@@ -109,4 +105,10 @@
 	font-size: 20px;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+	.seat-grid {
+		flex-direction: column;
+	}
 }
