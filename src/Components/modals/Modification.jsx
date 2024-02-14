@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 
-const Modal3 = ({
+const Modification = ({
 	isOpen,
 	onRequestClose,
 	allocatedSeats,
@@ -32,4 +32,4 @@ const Modal3 = ({
 	);
 };
 
-export default Modal3;
+export default Modification;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SeatGrid from "./Components/seat-grid/seat-grid";
 import Controls from "./Components/controls/controls";
-import Modal3 from "./Components/modals/Modification";
+import Modification from "./Components/modals/Modification";
 import generateSeats from "./Components/functions/generateSeats";
 
 const App = () => {
@@ -65,7 +65,9 @@ const App = () => {
 
 	const [seats, setSeats] = useState(generateSeats(40));
 	const [selectedSeats, setSelectedSeats] = useState({});
+	console.log(selectedSeats);
 	const [allocatedSeats, setAllocatedSeats] = useState({});
+	console.log(allocatedSeats);
 	const [isModificationConfirmationOpen, setIsModificationConfirmationOpen] =
 		useState(false);
 	const [selectedSeatToModify, setSelectedSeatToModify] = useState(-1);
@@ -83,7 +85,7 @@ const App = () => {
 			/>
 
 			{selectedSeatToModify !== -1 && (
-				<Modal3
+				<Modification
 					isOpen={isModificationConfirmationOpen}
 					onRequestClose={() => setIsModificationConfirmationOpen(false)}
 					allocatedSeats={allocatedSeats}

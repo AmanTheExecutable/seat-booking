@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./controls.css";
-import ModalElement from "../modals/Allocate";
-import ModalElement2 from "../modals/Deletion";
+import Allocate from "../modals/Allocate";
+import Deletion from "../modals/Deletion";
 
 const Controls = ({
 	seats,
@@ -74,7 +74,7 @@ const Controls = ({
 			});
 			return updatedAllocatedSeats;
 		});
-		setSelectedSeats({});
+		// setSelectedSeats({});
 		setIsSecondModalVisible(false); // Close the modal after confirmation
 	};
 
@@ -126,7 +126,7 @@ const Controls = ({
 					Allocate Seat
 				</button>
 			</div>
-			<ModalElement
+			<Allocate
 				isModalOpen={isFirstModalVisible}
 				closeModal={() => setIsFirstModalVisible(false)}
 				selectedSeats={selectedSeats}
@@ -134,7 +134,7 @@ const Controls = ({
 				setSelectedCategory={setSelectedCategory}
 				handleConfirm={handleConfirm}
 			/>
-			<ModalElement2
+			<Deletion
 				isModalOpen={isSecondModalVisible}
 				closeModal={() => setIsSecondModalVisible(false)}
 				allocatedSeats={allocatedSeats}

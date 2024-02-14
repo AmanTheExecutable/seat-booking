@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-function ModalElement2({
-	isModalOpen,
-	closeModal,
-	handleConfirm,
-	allocatedSeats,
-}) {
+function Deletion({ isModalOpen, closeModal, handleConfirm, allocatedSeats }) {
 	const [checkedSeats, setCheckedSeats] = useState([]);
 
 	// Handle checkbox change
@@ -56,4 +51,4 @@ function ModalElement2({
 	);
 }
 
-export default ModalElement2;
+export default Deletion;
