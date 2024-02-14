@@ -1,6 +1,5 @@
-// SeatGrid.js
 import React from "react";
-import Seat from "../seat";
+import Seat from "./seat";
 import "./seat-grid.css";
 import wheel from "../../assets/wheel.png";
 

@@ -1,23 +1,40 @@
 import React, { useState } from "react";
 import SeatGrid from "./Components/seat-grid/seat-grid";
-import Controls from "./Components/controls";
+import Controls from "./Components/controls/controls";
+import Modal3 from "./Components/modals/Modification";
+import generateSeats from "./Components/functions/generateSeats";
 
 const App = () => {
-	const generateSeats = numSeats => {
-		const seats = [];
-		for (let i = 1; i <= numSeats; i++) {
-			if (i === 1) {
-				seats.push({ number: i, category: "Driver" });
-			} else {
-				seats.push({ number: i, category: "open" });
-			}
-		}
-		return seats;
+	const handleModifySeat = newSeatNumber => {
+		swapSeats(selectedSeatToModify, parseInt(newSeatNumber));
+		setSelectedSeatToModify(-1);
+		setIsModificationConfirmationOpen(false);
 	};
 
-	const [seats, setSeats] = useState(generateSeats(40));
-	const [selectedSeats, setSelectedSeats] = useState({});
-	const [allocatedSeats, setAllocatedSeats] = useState({});
+	const swapSeats = (seatNumber1, seatNumber2) => {
+		const index1 = seats.findIndex(seat => seat.number === seatNumber1);
+		const index2 = seats.findIndex(seat => seat.number === seatNumber2);
+		if (index1 !== -1 && index2 !== -1) {
+			const updatedSeats = [...seats];
+			const tempCategory = updatedSeats[index1].category;
+			updatedSeats[index1].category = updatedSeats[index2].category;
+			updatedSeats[index2].category = tempCategory;
+			setSeats(updatedSeats);
+
+			setAllocatedSeats(prevState => {
+				const { [seatNumber1]: omit, ...rest } = prevState;
+				return rest;
+			});
+
+			setAllocatedSeats(prevState => ({
+				...prevState,
+				[seatNumber2]: true,
+			}));
+		} else {
+			console.error("Invalid seat numbers provided for swapping.");
+		}
+	};
+
 	const handleSeatClick = index => {
 		const updatedSeats = [...seats];
 		const seatNumber = index + 1;
@@ -34,12 +51,21 @@ const App = () => {
 				[seatNumber]: true,
 			}));
 		} else {
-			alert("Seat is already allocated!");
+			setSelectedSeatToModify(seatNumber);
+			setIsModificationConfirmationOpen(true);
 		}
 	};
-	console.log(seats);
+
+	const [seats, setSeats] = useState(generateSeats(40));
+	const [selectedSeats, setSelectedSeats] = useState({});
+	const [allocatedSeats, setAllocatedSeats] = useState({});
+	const [isModificationConfirmationOpen, setIsModificationConfirmationOpen] =
+		useState(false);
+	const [selectedSeatToModify, setSelectedSeatToModify] = useState(-1);
+
 	return (
 		<div className="app">
+			<h1>Seat Booking</h1>
 			<SeatGrid seats={seats} handleSeatClick={handleSeatClick} />
 			<Controls
 				allocatedSeats={allocatedSeats}
@@ -49,6 +75,15 @@ const App = () => {
 				selectedSeats={selectedSeats}
 				setSelectedSeats={setSelectedSeats}
 			/>
+
+			{selectedSeatToModify !== -1 && (
+				<Modal3
+					isOpen={isModificationConfirmationOpen}
+					onRequestClose={() => setIsModificationConfirmationOpen(false)}
+					allocatedSeats={allocatedSeats}
+					handleModifySeat={handleModifySeat}
+				/>
+			)}
 		</div>
 	);
 };

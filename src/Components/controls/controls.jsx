@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./controls.css";
-import ModalElement from "./modal";
-import ModalElement2 from "./modal2";
+import ModalElement from "../modals/Allocate";
+import ModalElement2 from "../modals/Deletion";
 
 const Controls = ({
 	seats,

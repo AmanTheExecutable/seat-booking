@@ -3,3 +3,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.app h1 {
+	text-align: center;
+	font-size: 40px;
+	font-weight: 900;
+	margin-top: 20px;
+}
