@@ -46,10 +46,17 @@ const App = () => {
 				category: updatedSeats[index].category === "open" ? "selected" : "open",
 			};
 			setSeats(updatedSeats);
-			setSelectedSeats(prevState => ({
-				...prevState,
-				[seatNumber]: true,
-			}));
+
+			setSelectedSeats(prevState => {
+				if (prevState[seatNumber]) {
+					const { [seatNumber]: omit, ...rest } = prevState;
+					return rest;
+				}
+				return {
+					...prevState,
+					[seatNumber]: true,
+				};
+			});
 		} else {
 			setSelectedSeatToModify(seatNumber);
 			setIsModificationConfirmationOpen(true);
@@ -62,7 +69,7 @@ const App = () => {
 	const [isModificationConfirmationOpen, setIsModificationConfirmationOpen] =
 		useState(false);
 	const [selectedSeatToModify, setSelectedSeatToModify] = useState(-1);
-
+	console.log(selectedSeats);
 	return (
 		<div className="app">
 			<h1>Seat Booking</h1>
